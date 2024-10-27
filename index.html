@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Insert Data</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia&effect=neon|outline|emboss|shadow-multiple">
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f8f9fa;
+    }
+    .carousel-item {
+      height: 100vh;
+      min-height: 300px;
+      background: no-repeat center center scroll;
+      background-size: cover;
+    }
+    .form-container {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: rgba(255, 255, 255, 0.9);
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    }
+    .btn-primary, .btn-danger, .btn-warning, .btn-success {
+      width: 100%;
+      margin-top: 10px;
+    }
+    .btn-success a {
+      color: azure;
+      text-decoration: none;
+    }
+    .btn-success a:hover {
+      color: white;
+    }
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
+</head>
+<body>
+  <div id="carouselExample" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
+    <div class="carousel-inner">
+      <div class="carousel-item active" style="background-image: url('https://images.unsplash.com/photo-1542744095-fcf48d80b0fd?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80');"></div>
+      <div class="carousel-item" style="background-image: url('https://images.unsplash.com/photo-1581291519195-ef11498d1cf9?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80');"></div>
+      <div class="carousel-item" style="background-image: url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80');"></div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+
+  <div class="form-container">
+    <div class="accordion" id="accordionExample">
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+            Login
+          </button>
+        </h2>
+        <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+          <div class="accordion-body">
+            <form class="form-horizontal" action="/login" method="post">
+              <input class="form-control" type="text" id="name" name="name" placeholder="Name">
+              <input class="form-control" type="text" id="rollno" name="rollno" placeholder="Roll no" required>
+              <input class="form-control" type="email" id="emailID" name="email" placeholder="Email Id" required>
+              <input class="form-control" type="number" id="phno" name="phno" placeholder="Phone no" required>
+              <button type="submit" value="Login" class="btn btn-primary">Login</button>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+            Delete
+          </button>
+        </h2>
+        <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+          <div class="accordion-body">
+            <form class="form-horizontal" action="/delete" method="post">
+              <input type="text" class="form-control" id="deleteRollno" name="rollno" placeholder="Roll no to delete">
+              <button type="submit" value="Delete" class="btn btn-danger">Delete</button>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+            Update
+          </button>
+        </h2>
+        <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+          <div class="accordion-body">
+            <form action="/update" method="post">
+              <input class="form-control" type="text" id="updateName" name="name" placeholder="Name to update">
+              <input class="form-control" type="text" id="updateRollno" name="rollno" placeholder="Roll no to update">
+              <input class="form-control" type="email" id="updateEmailId" name="email" placeholder="New Email Id">
+              <input class="form-control" type="number" id="updatePhno" name="phno" placeholder="New Phone no">
+              <button type="submit" class="btn btn-warning" value="Update">Update</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <br>
+    <br>
+    <button type="button" class="btn btn-success"><a href="/report">Generate Report</a></button>
+  </div>
+</body>
+</html>
